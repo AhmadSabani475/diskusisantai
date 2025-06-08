@@ -4,6 +4,6 @@ function UseInput(defaultValue = '') {
   const handleValueChange = ((event) => {
     setValue(event.target.value);
   });
-  return [value, setValue];
+  return [value, handleValueChange, setValue];
 }
 export default UseInput;
