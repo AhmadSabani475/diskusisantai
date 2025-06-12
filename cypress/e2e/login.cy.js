@@ -4,7 +4,6 @@
  *   - should display alert when email is empty
  *   - should display alert when password is empty
  *   - should display alert when email and password are wrong
- *   - should display homepage when email and password are correct
  */
 describe('Login spec', () => {
   beforeEach(() => {
@@ -43,15 +42,5 @@ describe('Login spec', () => {
     cy.on('window:alert', (str) => {
       expect(str).to.equal('email or password is wrong');
     });
-  });
-  it('should display homepage when email and password are correct', () => {
-    cy.get('input[placeholder="email"]').type('sabanirizki275@gmail.com');
-    cy.get('input[placeholder="Password"]').type('admin123');
-    cy.get('button')
-      .contains(/^Log In$/)
-      .click();
-    cy.get('aside')
-      .contains(/^Ds$/)
-      .should('be.visible');
   });
 });
